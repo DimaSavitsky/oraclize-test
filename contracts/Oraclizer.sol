@@ -16,6 +16,7 @@ contract Oraclizer is usingOraclize {
     }
 
     function __callback(bytes32 myid, string result) public {
+        require(msg.sender == oraclize_cbAddress());
         GBP = result;
     }
 }
